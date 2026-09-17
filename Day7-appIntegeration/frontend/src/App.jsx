@@ -47,6 +47,21 @@ const App = () => {
 
   console.log(allNotes);
 
+  let deleteNotes = async (id) => {
+    try {
+      let res = await axios.delete(`http://localhost:3000/notes/${id}`);
+      console.log(res);
+
+      getAllNotes();
+    } catch (error) {
+      console.log("error in delete notes", error.message);
+    }
+  };
+
+let noteForUpdate = (note) => {
+
+}
+
   return (
     <div className="h-screen w-full bg-zinc-900 text-white ">
       <div>
@@ -79,7 +94,7 @@ const App = () => {
 
         <div className="flex gap-5 flex-wrap overflow-hidden">
           {allNotes.map((val) => (
-            <NoteCrad key={val._id} note={val} />
+            <NoteCrad key={val._id} note={val} deleteNote = {deleteNotes}/>
           ))}
         </div>
       </div>
