@@ -1,5 +1,10 @@
-import app from "./app/app.js"
+import app from "./app/app.js";
+import { connectDB } from "./config/db.js";
 
-app.listen(3000, ()=>{
-    console.log("server is running")
-})
+
+await connectDB()
+
+
+app.listen(3000, () => {
+  console.log("server is running");
+});
