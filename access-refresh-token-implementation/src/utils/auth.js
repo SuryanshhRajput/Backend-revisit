@@ -11,5 +11,4 @@ export const generateTokens = ({ userId }) => {
   });
 
   return { refreshToken, accessToken };
-  
 };
